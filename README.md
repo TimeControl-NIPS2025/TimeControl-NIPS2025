@@ -2,7 +2,7 @@
 
 Official code for "TimeControl: Diffusion-based Controllable Generalization for Cross-Domain Time Series Forecasting" submitted to NIPS2025.
 
-export CUDA_VISIBLE_DEVICES=0
+You can execute the following commands to quickly run our code:
 
 ## Pretrain
 
