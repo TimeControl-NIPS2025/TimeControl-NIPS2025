@@ -1,0 +1,74 @@
+####################################################################################### 需要修改的参数部分
+output_dir: './exp_output'
+exp_stage1_name: 'stage1'
+exp_stage2_name: 'Concat_336_96'
+exp_stage3_name: 'Concat_336_96_forecasting'
+seed: 42
+resume_from_checkpoint: ''            # 断点续训
+
+max_train_steps_stage1: 100000        # 优化模型权重的次数上限，即训练的batch次数，默认为50000
+savemodel_steps_stage1: 50            # 每训练*个batch，保存一次模型权重，并记录这轮batch的train_loss
+validation_steps_stage1: 500          # 每训练*个batch，随后在全部测试集上测试，并记录这轮batch的valid_loss, 测试集样本的pred/true
+bset_batch_idx_stage1: 100000         # stage1阶段训练得到的最佳模型(在训练集或测试集上的loss值最低)
+
+max_train_steps_stage2: 500000
+savemodel_steps_stage2: 10000
+validation_steps_stage2: 10000
+bset_batch_idx_stage2: 500000
+
+max_train_steps_stage3: 10000
+savemodel_steps_stage3: 200
+validation_steps_stage3: 200
+bset_batch_idx_stage3: 10000
+
+data:
+  # Dataset&Dataloader
+  data: 'ETTh1'
+  in_len: 336
+  out_len: 96
+  down_scale: 1.0
+  step: 1.0
+  batch_size: 96
+  num_works: 16
+
+
+####################################################################################### 固定不变的参数部分
+model:
+  # UNet1DConditionModel
+  num_inference_steps: 20                         # forecasting中DDIM的采样步数，默认为20
+  guidance_scale: 3.5
+  block_out_channels: [128, 256, 512, 512]        # (320, 640, 1280, 1280)
+  cross_attention_dim: 768                       # 1280
+  layers_per_block: 2
+  # ChampTS
+  phase_dim: 48
+
+solver:
+  gradient_accumulation_steps: 1
+  mixed_precision: 'fp16'
+  enable_xformers_memory_efficient_attention: True    # 高效注意力机制，节省显存
+  gradient_checkpointing: False                       # 梯度检查点，节省显存
+  max_grad_norm: 1.0                                  # 梯度裁剪
+  # lr
+  learning_rate: 1.0e-4
+  scale_lr: False
+  lr_warmup_steps: 1
+  lr_scheduler: 'constant'
+  # optimizer
+  use_8bit_adam: False
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_weight_decay:  1.0e-2
+  adam_epsilon: 1.0e-6
+
+noise_scheduler_kwargs:
+  num_train_timesteps: 1000
+  beta_start:          0.00085
+  beta_end:            0.012
+  beta_schedule:       "scaled_linear"
+  steps_offset:        1
+  clip_sample:         false
+
+noise_offset: 0.05
+snr_gamma: 5.0
+enable_zero_snr: True 
