@@ -49,7 +49,7 @@ The generation metrics Context-FID Score, Correlational Score, Discriminative Sc
 pip install -r requirements.txt
 ```
 
-3. Download data. You can download all the datasets from [Autoformer](https://drive.google.com/drive/folders/1ZOYpTUa82_jCcxIdTmyr0LXQfvaM9vIy). Create a seperate folder ```./dataset``` and put all the csv files in the directory.
+3. Download data. You can download all the datasets from Autoformer. Create a seperate folder ```./dataset``` and put all the csv files in the directory.
 
 4. All the scripts are in the directory ```./scripts```. We provide script files for ```multi-domain training``` and ```training from scratch``` on specified domains. For example, if you want to get the multivariate forecasting results for **ETT** dataset, just run the following command, and you can open ```./result.txt``` to see the results once the training is done:
 
