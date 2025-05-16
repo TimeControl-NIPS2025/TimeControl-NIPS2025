@@ -1,4 +1,4 @@
-# TimeControl (Submitted to ICLR 2025)
+# TimeControl (Submitted to NIPS 2025)
 
 ### This is an offical implementation of "TimeControl: Diffusion-based Controllable Generalization for Cross-Domain Time Series Forecasting" submitted to NIPS2025.
 
