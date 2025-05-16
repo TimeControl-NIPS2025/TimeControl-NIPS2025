@@ -122,22 +122,6 @@ You can adjust the hyperparameters based on your needs (e.g. different patch len
 
 ## Acknowledgement
 
-We appreciate the following github repo very much for the valuable code base and datasets:
-
-https://github.com/cure-lab/LTSF-Linear
-
-https://github.com/zhouhaoyi/Informer2020
-
-https://github.com/thuml/Autoformer
-
-https://github.com/MAZiqing/FEDformer
-
-https://github.com/alipay/Pyraformer
-
-https://github.com/ts-kim/RevIN
-
-https://github.com/timeseriesAI/tsai
-
 ## Contact
 
 ## Citation
