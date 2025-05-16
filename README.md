@@ -120,9 +120,3 @@ python -W ignore inference_stage_4.py --mode scratch --config configs/zero_shot/
 
 You can adjust the hyperparameters based on your needs (e.g. different patch length, different look-back windows and backbone modules.). We also provide codes for the baseline models.
 
-## Acknowledgement
-
-## Contact
-
-## Citation
-
