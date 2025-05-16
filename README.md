@@ -39,7 +39,6 @@ The right part of table demonstrates the results of fine-tuning on target datase
 
 ![alt text](pic/table3.png)
 
-![alt text](pic/table4.png)
 The generation metrics Context-FID Score, Correlational Score, Discriminative Score and Predictive Score is reduced by **18.2%**, **16.2%**, **18.5%** and **17.8%** on ETTh dataset compared to the existing DiffusionTS. Besides, compared with DiffusionTS, the average improvement of all indicators of TimeControl on ETTh and Energy datasets is **17.6%** and **8.2%**, respectively.
 
 ## Getting Started
